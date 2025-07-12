@@ -1,0 +1,13 @@
+streamlit
+tensorflow>=2.10.0
+numpy
+opencv-python-headless  # For cv2 in Streamlit
+torch
+pandas
+scikit-learn
+transformers
+PyPDF2
+protobuf>=3.20.0
+tf-keras
+langchain
+langgraph
