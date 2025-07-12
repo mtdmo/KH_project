@@ -2,8 +2,23 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 import uvicorn
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+# CORS setup: Add your Streamlit Cloud URL below for production
+origins = [
+    "http://localhost:8501",  # For local dev
+    # "https://your-streamlit-app.streamlit.app",  # Uncomment and set your deployed Streamlit app URL
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Image classification endpoint
 @app.post("/classify-image")
